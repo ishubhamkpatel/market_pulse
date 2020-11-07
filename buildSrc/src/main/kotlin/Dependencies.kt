@@ -17,6 +17,7 @@ object Versions {
     /* androidX */
     const val core = "1.3.2"
     const val appcompat = "1.2.0"
+    const val multiDex = "2.0.1"
     const val activity = "1.1.0"
     const val fragment = "1.2.5"
     const val constraintLayout = "2.0.4"
@@ -51,6 +52,7 @@ object Libs {
     /* androidX */
     const val core = "androidx.core:core-ktx:${Versions.core}"
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appcompat}"
+    const val multiDex = "androidx.multidex:multidex:${Versions.multiDex}"
     const val activity = "androidx.activity:activity-ktx:${Versions.activity}"
     const val fragment = "androidx.fragment:fragment-ktx:${Versions.fragment}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"

@@ -50,6 +50,7 @@ dependencies {
     // AndroidX
     implementation(Libs.core)
     implementation(Libs.appcompat)
+    implementation(Libs.multiDex)
     implementation(Libs.activity)
     implementation(Libs.fragment)
     implementation(Libs.constraintLayout)
