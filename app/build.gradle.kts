@@ -57,6 +57,7 @@ dependencies {
     implementation(Libs.constraintLayout)
     implementation(Libs.recyclerView)
     implementation(Libs.cardView)
+    implementation(Libs.swipeRefreshLayout)
 
     // Jetpack
     implementation(Libs.viewModel)

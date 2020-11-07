@@ -23,6 +23,7 @@ object Versions {
     const val constraintLayout = "2.0.4"
     const val recyclerView = "1.1.0"
     const val cardView = "1.0.0"
+    const val swipeRefreshLayout = "1.1.0"
 
     /* jetpack */
     const val lifecycle = "2.2.0"
@@ -61,6 +62,7 @@ object Libs {
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
     const val cardView = "androidx.cardview:cardview:${Versions.cardView}"
+    const val swipeRefreshLayout = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.swipeRefreshLayout}"
 
     /* jetpack */
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
