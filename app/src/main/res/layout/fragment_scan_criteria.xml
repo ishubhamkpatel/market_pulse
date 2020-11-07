@@ -54,23 +54,15 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="8dp"
-        app:cardBackgroundColor="@color/black"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="0dp"
+        android:background="@drawable/bg_recycler_black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cv_scan">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/item_criteria_details"
-            tools:itemCount="3" />
-
-    </androidx.cardview.widget.CardView>
+        app:layout_constraintTop_toBottomOf="@id/cv_scan"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_criteria_details" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
