@@ -74,6 +74,7 @@ dependencies {
     implementation(Libs.retrofit)
     implementation(Libs.retrofitConverter)
     implementation(Libs.okHttp)
+    implementation(Libs.okHttpLoggingInterceptor)
 
     // Google
     implementation(Libs.gson)

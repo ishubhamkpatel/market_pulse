@@ -75,6 +75,7 @@ object Libs {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
+    const val okHttpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
 
     /* google */
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
