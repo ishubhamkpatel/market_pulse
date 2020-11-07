@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MarketPulse</string>
+
+    <!-- Splash -->
+    <string name="splash_primary_text">MarketPulse</string>
+    <string name="splash_secondary_text">Criteria Parser</string>
 </resources>
