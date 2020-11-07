@@ -21,10 +21,12 @@ android {
 
     buildTypes {
         getByName("debug") {
+            buildConfigField("String", "BASE_URL", "\"https://mp-android-challenge.herokuapp.com/\"")
             isMinifyEnabled = false
             isDebuggable = true
         }
         getByName("release") {
+            buildConfigField("String", "BASE_URL", "\"https://mp-android-challenge.herokuapp.com/\"")
             isMinifyEnabled = true
             isDebuggable = false
             isShrinkResources = true
@@ -35,12 +37,42 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+
+    // Kotlin
     implementation(Libs.kotlin)
+    implementation(Libs.coroutinesCore)
+    implementation(Libs.coroutinesAndroid)
+
+    // AndroidX
     implementation(Libs.core)
     implementation(Libs.appcompat)
-
+    implementation(Libs.activity)
+    implementation(Libs.fragment)
     implementation(Libs.constraintLayout)
+    implementation(Libs.recyclerView)
+    implementation(Libs.cardView)
 
+    // Jetpack
+    implementation(Libs.viewModel)
+    implementation(Libs.liveData)
+    kapt(Libs.lifecycleCompiler)
+    implementation(Libs.navigationFragment)
+    implementation(Libs.navigationUi)
+
+    // Square
+    implementation(Libs.dagger)
+    implementation(Libs.daggerSupport)
+    kapt(Libs.daggerProcessor)
+    kapt(Libs.daggerCompiler)
+    implementation(Libs.retrofit)
+    implementation(Libs.retrofitConverter)
+    implementation(Libs.okHttp)
+
+    // Google
+    implementation(Libs.gson)
+    implementation(Libs.materialDesign)
+
+    // Testing
     testImplementation(TestLibs.junit)
     androidTestImplementation(TestLibs.androidJunit)
     androidTestImplementation(TestLibs.androidEspresso)
