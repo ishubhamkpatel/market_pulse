@@ -3,6 +3,7 @@ package com.shubham.marketpulse.base
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
+import com.shubham.marketpulse.utility.ViewModelFactory
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -17,6 +18,8 @@ abstract class BaseActivity(@LayoutRes id: Int): AppCompatActivity(id), HasAndro
     @Inject lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
 
     override fun androidInjector(): AndroidInjector<Any> = dispatchingAndroidInjector
+
+    @Inject lateinit var viewModelFactory: ViewModelFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
