@@ -37,6 +37,9 @@ object Versions {
     const val gson = "2.8.6"
     const val materialDesign = "1.2.1"
 
+    /* facebook */
+    const val shimmerLayout = "0.5.0"
+
     /* test */
     const val junit = "4.12"
     const val androidJunit = "1.1.2"
@@ -80,6 +83,9 @@ object Libs {
     /* google */
     const val gson = "com.google.code.gson:gson:${Versions.gson}"
     const val materialDesign = "com.google.android.material:material:${Versions.materialDesign}"
+
+    /* facebook */
+    const val shimmerLayout = "com.facebook.shimmer:shimmer:${Versions.shimmerLayout}"
 }
 
 object TestLibs {

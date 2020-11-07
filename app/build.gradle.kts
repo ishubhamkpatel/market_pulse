@@ -80,6 +80,9 @@ dependencies {
     implementation(Libs.gson)
     implementation(Libs.materialDesign)
 
+    // Facebook
+    implementation(Libs.shimmerLayout)
+
     // Testing
     testImplementation(TestLibs.junit)
     androidTestImplementation(TestLibs.androidJunit)
