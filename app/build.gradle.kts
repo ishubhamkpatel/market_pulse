@@ -13,6 +13,7 @@ android {
         applicationId = "com.shubham.marketpulse"
         minSdkVersion(Apps.minSdk)
         targetSdkVersion(Apps.targetSdk)
+        multiDexEnabled = true
         versionCode = Apps.versionCode
         versionName = Apps.versionName
 
