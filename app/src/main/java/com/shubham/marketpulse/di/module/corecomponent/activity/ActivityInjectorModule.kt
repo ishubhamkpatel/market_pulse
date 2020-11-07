@@ -1,6 +1,7 @@
 package com.shubham.marketpulse.di.module.corecomponent.activity
 
 import com.shubham.marketpulse.base.BaseActivity
+import com.shubham.marketpulse.di.module.corecomponent.fragment.HomeFragmentsModule
 import com.shubham.marketpulse.features.home.HomeActivity
 import com.shubham.marketpulse.features.splash.SplashActivity
 import dagger.Module
@@ -18,6 +19,6 @@ abstract class ActivityInjectorModule {
     @ContributesAndroidInjector
     internal abstract fun contributeSplashActivity(): SplashActivity
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [HomeFragmentsModule::class])
     internal abstract fun contributeHomeActivity(): HomeActivity
 }
