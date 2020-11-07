@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_home"
+    app:startDestination="@id/scanCriteriaFragment">
+
+    <!-- navigation destinations -->
+
+    <fragment
+        android:id="@+id/scansListingFragment"
+        android:name="com.shubham.marketpulse.features.home.scanslisting.view.ScansListingFragment"
+        android:label="ScansListingFragment"
+        tools:layout="@layout/fragment_scans_listing" />
+
+    <fragment
+        android:id="@+id/scanCriteriaFragment"
+        android:name="com.shubham.marketpulse.features.home.scancriteria.view.ScanCriteriaFragment"
+        android:label="ScanCriteriaFragment"
+        tools:layout="@layout/fragment_scan_criteria" />
+
+    <!-- navigation global actions -->
+
+    <action
+        android:id="@+id/action_global_scansListingFragment"
+        app:destination="@id/scansListingFragment" />
+
+    <action
+        android:id="@+id/action_global_scanCriteriaFragment"
+        app:destination="@id/scanCriteriaFragment" />
+
+</navigation>
