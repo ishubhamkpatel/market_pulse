@@ -66,10 +66,11 @@ dependencies {
     implementation(Libs.navigationUi)
 
     // Square
-    implementation(Libs.dagger)
-    implementation(Libs.daggerSupport)
-    kapt(Libs.daggerProcessor)
-    kapt(Libs.daggerCompiler)
+    implementation(Libs.daggerCore)
+    implementation(Libs.daggerAndroid)
+    implementation(Libs.daggerAndroidSupport)
+    kapt(Libs.daggerAndroidProcessor)
+    kapt(Libs.daggerAndroidCompiler)
     implementation(Libs.retrofit)
     implementation(Libs.retrofitConverter)
     implementation(Libs.okHttp)
