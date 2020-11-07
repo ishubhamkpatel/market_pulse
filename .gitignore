@@ -16,4 +16,5 @@
 /buildSrc/build/
 /buildSrc/.gradle
 /.idea
+/.idea/misc.xml
 /app/build
