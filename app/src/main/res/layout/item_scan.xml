@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp">
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
 
     <TextView
         android:id="@+id/tv_scan_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:ellipsize="end"
         android:gravity="start"
         android:maxLines="2"
@@ -23,12 +25,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
         android:ellipsize="end"
         android:gravity="start"
         android:maxLines="1"
         android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/v_divider"
         app:layout_constraintTop_toBottomOf="@id/tv_scan_title"
         tools:text="Bullish"
         tools:textColor="#78F078" />
+
+    <View
+        android:id="@+id/v_divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/bg_dashed_line"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
