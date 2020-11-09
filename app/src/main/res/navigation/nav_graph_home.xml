@@ -11,22 +11,28 @@
         android:id="@+id/scansListingFragment"
         android:name="com.shubham.marketpulse.features.home.scanslisting.view.ScansListingFragment"
         android:label="ScansListingFragment"
-        tools:layout="@layout/fragment_scans_listing" />
+        tools:layout="@layout/fragment_scans_listing" >
+        <action
+            android:id="@+id/action_scansListingFragment_to_scanCriteriaFragment"
+            app:destination="@id/scanCriteriaFragment"
+            app:popUpTo="@id/scansListingFragment"
+            app:popUpToInclusive="false">
+            <argument
+                android:name="scanId"
+                app:argType="integer"
+                android:defaultValue="0" />
+        </action>
+    </fragment>
 
     <fragment
         android:id="@+id/scanCriteriaFragment"
         android:name="com.shubham.marketpulse.features.home.scancriteria.view.ScanCriteriaFragment"
         android:label="ScanCriteriaFragment"
-        tools:layout="@layout/fragment_scan_criteria" />
-
-    <!-- navigation global actions -->
-
-    <action
-        android:id="@+id/action_global_scansListingFragment"
-        app:destination="@id/scansListingFragment" />
-
-    <action
-        android:id="@+id/action_global_scanCriteriaFragment"
-        app:destination="@id/scanCriteriaFragment" />
+        tools:layout="@layout/fragment_scan_criteria">
+        <argument
+            android:name="scanId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 
 </navigation>
