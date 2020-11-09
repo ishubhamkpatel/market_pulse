@@ -1,7 +1,11 @@
 package com.shubham.marketpulse.features.home.scanslisting.viewmodel
 
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.shubham.marketpulse.base.ViewModelRepositoryCommunicator
 import com.shubham.marketpulse.features.home.scanslisting.repository.ScansListingRepository
+import com.shubham.marketpulse.model.ScansData
+import com.shubham.marketpulse.utility.Constants
+import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
 /**
@@ -9,5 +13,27 @@ import javax.inject.Inject
  */
 class ScansListingFragmentViewModel @Inject constructor(
     private val repository: ScansListingRepository
-) : ViewModel() {
+) : ViewModel(), ViewModelRepositoryCommunicator {
+
+    private val errorLiveData = MutableLiveData<String>()
+//    private val networkErrorLiveData = MutableLiveData<Boolean>()
+
+    fun observeError(): LiveData<String> = errorLiveData
+
+    override fun onError(errorMessage: String) {
+        errorLiveData.postValue(errorMessage)
+    }
+
+    override fun onNetworkError(status: Boolean) {
+        errorLiveData.postValue(Constants.NETWORK_ERROR_MESSAGE)
+//        networkErrorLiveData.postValue(status)
+    }
+
+    /* BG tasks */
+
+    fun fetchScansData(): LiveData<List<ScansData>?> {
+        return liveData(viewModelScope.coroutineContext + Dispatchers.IO) {
+            emit(repository.fetchScansData(this@ScansListingFragmentViewModel))
+        }
+    }
 }
