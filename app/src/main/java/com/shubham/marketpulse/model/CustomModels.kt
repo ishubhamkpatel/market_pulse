@@ -12,5 +12,5 @@ data class ScansData(
 
 data class CriteriaData(
     val viewType: Int?,
-    val text: String?
+    val text: String? = null
 )
