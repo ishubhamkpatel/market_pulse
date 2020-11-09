@@ -45,16 +45,16 @@ class HomeActivity: BaseActivity(R.layout.activity_home) {
     }
 
     private fun showShimmer() {
-        if (sfl_shimmer?.visibility == View.GONE) {
-            sfl_shimmer?.visibility = View.VISIBLE
+        if (i_shimmer?.visibility == View.GONE) {
+            i_shimmer?.visibility = View.VISIBLE
             sfl_shimmer?.startShimmer()
         }
     }
 
     private fun hideShimmer() {
-        if (sfl_shimmer?.visibility == View.VISIBLE) {
+        if (i_shimmer?.visibility == View.VISIBLE) {
             sfl_shimmer?.stopShimmer()
-            sfl_shimmer?.visibility = View.GONE
+            i_shimmer?.visibility = View.GONE
         }
     }
 }
