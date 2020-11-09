@@ -5,6 +5,7 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.shubham.marketpulse.R
 import com.shubham.marketpulse.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_home.*
@@ -26,7 +27,7 @@ class HomeActivity: BaseActivity(R.layout.activity_home) {
     }
 
     private fun setupNavigation() {
-        navController = findNavController(f_nav_host.id)
+        navController = (supportFragmentManager.findFragmentById(R.id.f_nav_host) as NavHostFragment).navController
     }
 
     private fun setupViewModel() {
