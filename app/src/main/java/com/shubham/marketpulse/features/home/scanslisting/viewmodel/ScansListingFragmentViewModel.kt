@@ -15,6 +15,8 @@ class ScansListingFragmentViewModel @Inject constructor(
     private val repository: ScansListingRepository
 ) : ViewModel(), ViewModelRepositoryCommunicator {
 
+    /* Callbacks */
+
     private val errorLiveData = MutableLiveData<String>()
 //    private val networkErrorLiveData = MutableLiveData<Boolean>()
 
@@ -36,4 +38,8 @@ class ScansListingFragmentViewModel @Inject constructor(
             emit(repository.fetchScansData(this@ScansListingFragmentViewModel))
         }
     }
+
+    /* Calculations */
+
+    fun getScanAndCriteriaDetails(id: Int) = repository.getScanAndCriteriaDetails(id)
 }

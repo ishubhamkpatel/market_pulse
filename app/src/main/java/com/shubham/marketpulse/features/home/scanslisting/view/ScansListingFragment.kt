@@ -21,7 +21,7 @@ import kotlinx.android.synthetic.main.toolbar.*
 class ScansListingFragment : BaseFragment(R.layout.fragment_scans_listing),
     ScansListingRecyclerAdapterCallback {
 
-    private var homeActivityViewModel: HomeActivityViewModel? = null
+    private lateinit var homeActivityViewModel: HomeActivityViewModel
     private lateinit var viewModel: ScansListingFragmentViewModel
     private var adapter: ScansListingRecyclerAdapter? = null
 
@@ -48,11 +48,13 @@ class ScansListingFragment : BaseFragment(R.layout.fragment_scans_listing),
     /* Implementations */
 
     private fun setupViewModel() {
-        homeActivityViewModel = activity?.let {
-            ViewModelProvider(
-                it, viewModelFactory
-            )[HomeActivityViewModel::class.java]
-        }
+        try {
+            homeActivityViewModel = requireActivity().let {
+                ViewModelProvider(
+                    it, viewModelFactory
+                )[HomeActivityViewModel::class.java]
+            }
+        } catch (e: IllegalStateException) {}
         viewModel = ViewModelProvider(
             this, viewModelFactory
         )[ScansListingFragmentViewModel::class.java]
@@ -90,7 +92,9 @@ class ScansListingFragment : BaseFragment(R.layout.fragment_scans_listing),
     }
 
     private fun fetchScansData() {
+        homeActivityViewModel.yieldShimmer(true)
         viewModel.fetchScansData().observe(viewLifecycleOwner, { data ->
+            homeActivityViewModel.yieldShimmer(false)
             hideSwipeRefresh()
             data?.let {
                 populateRecycler(it)
@@ -102,12 +106,23 @@ class ScansListingFragment : BaseFragment(R.layout.fragment_scans_listing),
         adapter?.setData(data)
     }
 
+    private fun checkAndStoreCriteriaDetails(id: Int) {
+        val details = viewModel.getScanAndCriteriaDetails(id)
+        details.first?.let { homeActivityViewModel.setScanDetails(it) }
+        details.second?.let { homeActivityViewModel.setCriteriaDetails(it) }
+    }
+
+    private fun gotoCriteriaScreen(id: Int) {
+        homeActivityViewModel.yieldNavigation(ScansListingFragmentDirections
+            .actionScansListingFragmentToScanCriteriaFragment(scanId = id)
+        )
+    }
+
     /* Callbacks */
 
     override fun onScanClicked(id: Int) {
-        homeActivityViewModel?.yieldNavigation(ScansListingFragmentDirections
-            .actionScansListingFragmentToScanCriteriaFragment(scanId = id)
-        )
+        checkAndStoreCriteriaDetails(id)
+        gotoCriteriaScreen(id)
     }
 
     /* Utilities */
